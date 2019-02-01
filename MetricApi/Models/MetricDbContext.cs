@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace metric-api.Models
+namespace MetricApi.Models
 {
     public partial class MetricDbContext : DbContext
     {

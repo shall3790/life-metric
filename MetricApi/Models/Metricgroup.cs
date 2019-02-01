@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace metric-api.Models
+namespace MetricApi.Models
 {
     public partial class Metricgroup
     {

@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace MetricApi.Services
 {
-    public class MetricService
+    public class MetricService : IMetricService
     {
         // private readonly IMongoCollection<Book> _books;
 
@@ -14,6 +14,11 @@ namespace MetricApi.Services
             // var client = new MongoClient(config.GetConnectionString("BookstoreDb"));
             // var database = client.GetDatabase("BookstoreDb");
             // _books = database.GetCollection<Book>("Books");
+        }
+
+        public string Get()
+        {
+            return "some value";
         }
 
         // public List<Book> Get()
