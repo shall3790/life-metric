@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MetricApi.Models;
 using MetricApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,15 @@ namespace MetricApi.Controllers
         {
             var foo = this._metricService.Get();
             return new string[] { "value1", "value2" };
+        }
+
+        [HttpGet]
+        [Route("groups")]
+        public IEnumerable<Metricgroup> GetMetricGroups()
+        {
+        // public ActionResult<IEnumerable<Metricgroup>> GetGroups() {
+            var groups = this._metricService.GetGroups();
+            return groups;
         }
 
         // GET api/values/5

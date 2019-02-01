@@ -1,7 +1,11 @@
+using System.Collections.Generic;
+using MetricApi.Models;
+
 namespace MetricApi.Services
 {
     public interface IMetricService
     {
-        public string Get();
+        string Get();
+        List<Metricgroup> GetGroups();
     }
 }
