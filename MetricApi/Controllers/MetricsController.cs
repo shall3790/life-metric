@@ -27,7 +27,7 @@ namespace MetricApi.Controllers
 
         [HttpGet]
         [Route("groups")]
-        public IEnumerable<Metricgroup> GetMetricGroups()
+        public IEnumerable<MetricGroup> GetMetricGroups()
         {
         // public ActionResult<IEnumerable<Metricgroup>> GetGroups() {
             var groups = this._metricService.GetGroups();

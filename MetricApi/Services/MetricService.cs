@@ -23,12 +23,12 @@ namespace MetricApi.Services
             return "some value";
         }
 
-        public List<Metricgroup> GetGroups() {
+        public List<MetricGroup> GetGroups() {
             // List<Metricgroup> groups = null;
             // using (var context = new MetricDbContext()) {
             //     groups = context.Metricgroup.ToList();        
             // }
-            var groups = this._context.Metricgroup.ToList();
+            var groups = this._context.MetricGroup.ToList();
 
             return groups;
         }

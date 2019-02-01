@@ -6,6 +6,6 @@ namespace MetricApi.Services
     public interface IMetricService
     {
         string Get();
-        List<Metricgroup> GetGroups();
+        List<MetricGroup> GetGroups();
     }
 }

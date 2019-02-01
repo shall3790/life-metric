@@ -15,11 +15,11 @@ namespace MetricApi.Models
         {
         }
 
-        public virtual DbSet<Metricgroup> Metricgroup { get; set; }
+        public virtual DbSet<MetricGroup> MetricGroup { get; set; }
+        public virtual DbSet<MetricName> MetricName { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // TODO: inject config value for connection string
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
@@ -29,16 +29,26 @@ namespace MetricApi.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Metricgroup>(entity =>
+            modelBuilder.Entity<MetricGroup>(entity =>
             {
-                entity.ToTable("metricgroup");
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(256);
+            });
 
-                entity.Property(e => e.Id).HasColumnName("id");
+            modelBuilder.Entity<MetricName>(entity =>
+            {
+                entity.Property(e => e.GroupId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Name)
                     .IsRequired()
-                    .HasColumnName("name")
                     .HasMaxLength(256);
+
+                entity.HasOne(d => d.Group)
+                    .WithMany(p => p.MetricName)
+                    .HasForeignKey(d => d.GroupId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("MetricGroupId");
             });
         }
     }
