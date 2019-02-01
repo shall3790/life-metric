@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace metric_api
+namespace MetricApi
 {
     public class Startup
     {
@@ -28,6 +28,9 @@ namespace metric_api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            // services.AddEntityFrameworkNpgsql()
+            //    .AddDbContext<BlogContext>()
+            //    .BuildServiceProvider();
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
